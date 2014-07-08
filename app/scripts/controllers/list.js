@@ -1,10 +1,14 @@
 angular.module('bonitaPlatform')
     .controller('ListCtrl', function ($scope, $http, $modal) {
 
-        $http.get("/api/tenant")
-            .success(function (data) {
-                $scope.tenants = data;
-            });
+        function load() {
+            $http.get("/api/tenant")
+                .success(function (data) {
+                    $scope.tenants = data;
+                });
+        }
+        load();
+
 
         $scope.isActivated = function (tenant) {
             return tenant.state == "ACTIVATED";
@@ -18,10 +22,10 @@ angular.module('bonitaPlatform')
                     message: function () {
                         return message;
                     },
-                    tenant: function() {
+                    tenant: function () {
                         return tenant;
                     },
-                    buttonOk: function() {
+                    buttonOk: function () {
                         return buttonOk;
                     }
                 }
@@ -32,7 +36,10 @@ angular.module('bonitaPlatform')
             var modal = openModal(tenant, "Are you sure you want to pause tenant '" + tenant.name + "' ?", "Pause");
 
             modal.result.then(function (tenant) {
-                tenant.state = "DEACTIVATED";
+                $http.put("/bonita/API/system/tenant/" + tenant.id, {paused: "true"})
+                    .success(function (data) {
+                        load();
+                    });
             });
         };
 
@@ -40,7 +47,10 @@ angular.module('bonitaPlatform')
             var modal = openModal(tenant, "Are you sure you want to resume tenant '" + tenant.name + "' ?", 'Resume');
 
             modal.result.then(function (tenant) {
-                tenant.state = "ACTIVATED";
+                $http.put("/bonita/API/system/tenant/" + tenant.id, {paused: "false"})
+                    .success(function (data) {
+                        load();
+                    });
             });
         }
 
@@ -56,7 +66,7 @@ angular.module('bonitaPlatform')
             alert('not implemented yet');
         }
     })
-    .controller('ModalInstanceCtrl', function($scope, $modalInstance, message, tenant, buttonOk) {
+    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, message, tenant, buttonOk) {
         $scope.message = message;
         $scope.button = buttonOk;
         $scope.ok = function () {
