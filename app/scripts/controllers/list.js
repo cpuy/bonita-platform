@@ -22,4 +22,8 @@ angular.module('bonitaPlatform')
         $scope.delete = function(tenant) {
             alert('not implemented yet');
         }
+
+        $scope.edit = function(tenant) {
+            alert('not implemented yet');
+        }
     });
