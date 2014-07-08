@@ -10,7 +10,7 @@ angular
             })
             .when('/tenants/new', {
                 templateUrl: 'views/create.html',
-                controller: 'MainCtrl'
+                controller: 'CreateCtrl'
             })
             .otherwise({
                 redirectTo: '/tenants'
