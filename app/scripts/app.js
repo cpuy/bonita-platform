@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('bonitaPlatform', ['ngRoute'])
+  .module('bonitaPlatform', ['ngRoute', 'ui.bootstrap'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/tenants', {
