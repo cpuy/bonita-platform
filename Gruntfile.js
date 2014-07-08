@@ -71,6 +71,18 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+        server: {
+            proxies: [
+                {
+                    context: '/bonita/API',
+                    host: 'localhost',
+                    port: 8080,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                }
+            ]
+        },
       livereload: {
         options: {
           open: true,
@@ -81,7 +93,8 @@ module.exports = function (grunt) {
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+                require('grunt-connect-proxy/lib/utils').proxyRequest
             ];
           }
         }
@@ -365,6 +378,7 @@ module.exports = function (grunt) {
       'clean:server',
 //      'wiredep',
       'concurrent:server',
+        'configureProxies:server',
       'autoprefixer',
       'connect:livereload',
       'watch'
