@@ -42,7 +42,11 @@ angular.module('bonitaPlatform')
         }
 
         $scope.delete = function (tenant) {
-            alert('not implemented yet');
+            var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?");
+
+            modal.result.then(function (tenant) {
+                alert('not yet implemented');
+            });
         }
 
         $scope.edit = function (tenant) {
