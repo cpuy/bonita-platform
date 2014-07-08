@@ -5,7 +5,7 @@ angular
     .config(function ($routeProvider) {
         $routeProvider
             .when('/tenants', {
-                templateUrl: 'views/main.html',
+                templateUrl: 'views/list.html',
                 controller: 'ListCtrl'
             })
             .when('/tenants/new', {
