@@ -34,8 +34,11 @@ angular.module('bonitaPlatform')
         };
 
         $scope.resume = function (tenant) {
-            alert('resumed');
-            tenant.state = "ACTIVATED";
+            var modal = openModal(tenant, "Are you sure you want to resume tenant '" + tenant.name + "' ?");
+
+            modal.result.then(function (tenant) {
+                tenant.state = "ACTIVATED";
+            });
         }
 
         $scope.delete = function (tenant) {
