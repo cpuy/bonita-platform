@@ -28,6 +28,12 @@
     color: #FFFFFF;
 }
 
+p.navbar-text {
+    color: #ebebeb;
+    margin: 0;
+    padding: 0;
+}
+
 .action {
     cursor: pointer;
     padding: 0 5px;

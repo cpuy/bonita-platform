@@ -31,6 +31,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/list.js"></script>
     <script src="scripts/controllers/create.js"></script>
+    <script src="scripts/controllers/platform.js"></script>
     <!-- endbuild -->
 </head>
 <body ng-app="bonitaPlatform">
@@ -41,6 +42,10 @@
             <img class="img-responsive" ng-src="images/bonita.png" />
             <a href="/" class="navbar-brand"><h3>Platform Management</h3></a>
         </div>
+        <p class="navbar-text navbar-right" ng-controller="PlatformCtrl">
+            <small>Version:</small> {{platform.version}}<br/>
+            <small>Created on:</small> {{platform.created | date:'short'}}<br/>
+            <small>Created by:</small> {{platform.createdBy}}</p>
     </div>
 </nav>
 
