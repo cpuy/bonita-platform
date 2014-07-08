@@ -8,8 +8,8 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_componenbootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_componenfont-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -18,16 +18,17 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_componenjquery/dist/jquery.js"></script>
-    <script src="bower_componenangular/angular.js"></script>
-    <script src="bower_componenbootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_componenangular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/list.js"></script>
     <!-- endbuild -->
 </head>
 <body ng-app="bonitaPlatform">
@@ -42,7 +43,9 @@
             <h3 class="text-muted">Bonita Platform</h3>
         </div>
 
-        <div ng-view=""></div>
+        <a class="btn btn-primary" href="#/tenant/new">Create tenant</a>
+
+        <div class="row" ng-view=""></div>
     </div>
 
 </body>
