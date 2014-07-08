@@ -38,7 +38,6 @@
     </table>
 </div>
 
-
 <div ng-controller="ModalCtrl">
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
@@ -48,8 +47,8 @@
             {{message}}
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" ng-click="ok()">{{button || 'OK'}}</button>
         </div>
     </script>
 </div>

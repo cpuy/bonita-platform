@@ -10,7 +10,7 @@ angular.module('bonitaPlatform')
             return tenant.state == "ACTIVATED";
         }
 
-        function openModal(tenant, message) {
+        function openModal(tenant, message, buttonOk) {
             return $modal.open({
                 templateUrl: 'myModalContent.html',
                 controller: 'ModalInstanceCtrl',
@@ -20,13 +20,16 @@ angular.module('bonitaPlatform')
                     },
                     tenant: function() {
                         return tenant;
+                    },
+                    buttonOk: function() {
+                        return buttonOk;
                     }
                 }
             });
         };
 
         $scope.pause = function (tenant) {
-            var modal = openModal(tenant, "Are you sure you want to pause tenant '" + tenant.name + "' ?");
+            var modal = openModal(tenant, "Are you sure you want to pause tenant '" + tenant.name + "' ?", "Pause");
 
             modal.result.then(function (tenant) {
                 tenant.state = "DEACTIVATED";
@@ -34,7 +37,7 @@ angular.module('bonitaPlatform')
         };
 
         $scope.resume = function (tenant) {
-            var modal = openModal(tenant, "Are you sure you want to resume tenant '" + tenant.name + "' ?");
+            var modal = openModal(tenant, "Are you sure you want to resume tenant '" + tenant.name + "' ?", 'Resume');
 
             modal.result.then(function (tenant) {
                 tenant.state = "ACTIVATED";
@@ -42,7 +45,7 @@ angular.module('bonitaPlatform')
         }
 
         $scope.delete = function (tenant) {
-            var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?");
+            var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?", 'Delete');
 
             modal.result.then(function (tenant) {
                 alert('not yet implemented');
@@ -53,8 +56,9 @@ angular.module('bonitaPlatform')
             alert('not implemented yet');
         }
     })
-    .controller('ModalInstanceCtrl', function($scope, $modalInstance, message, tenant) {
+    .controller('ModalInstanceCtrl', function($scope, $modalInstance, message, tenant, buttonOk) {
         $scope.message = message;
+        $scope.button = buttonOk;
         $scope.ok = function () {
             $modalInstance.close(tenant);
         };
