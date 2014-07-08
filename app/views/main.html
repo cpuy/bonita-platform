@@ -1,5 +1,5 @@
 <div class="row">
-    <a class="btn btn-primary pull-right" href="#/tenants/new">Create tenant</a>
+    <a class="btn btn-primary btn-sm pull-right" href="#/tenants/new"><i class="fa fa-plus"></i> New tenant</a>
 </div>
 <div class="row">
     <table class="table table-striped">
@@ -20,7 +20,7 @@
             <td>{{tenant.description}}</td>
             <td>{{tenant.creation}}</td>
             <td>{{tenant.state}}</td>
-            <td>
+            <td class="text-right">
                 <a class="action">
                     <i  ng-show="isActivated(tenant)" ng-click="pause(tenant)" title="Pause tenant" class="fa fa-pause"></i>
                     <i  ng-show="!isActivated(tenant)" ng-click="resume(tenant)" title="Resume tenant" class="fa fa-play"></i>
@@ -29,7 +29,7 @@
                     <i  ng-click="delete(tenant)" title="Delete tenant" class="fa fa-trash-o"></i>
                 </a>
                 <a class="action">
-                    <i ng-click="edit(tenant)" title="Delete tenant" class="fa fa-edit"></i>
+                    <i ng-click="edit(tenant)" title="Edit tenant" class="fa fa-edit"></i>
                 </a>
 
             </td>
