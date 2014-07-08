@@ -4,16 +4,16 @@ angular
   .module('bonitaPlatform', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/', {
+            .when('/tenants', {
                 templateUrl: 'views/main.html',
                 controller: 'ListCtrl'
             })
-            .when('/tenant/new', {
+            .when('/tenants/new', {
                 templateUrl: 'views/create.html',
                 controller: 'MainCtrl'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/tenants'
             });
     });
 
