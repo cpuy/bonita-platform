@@ -26,20 +26,9 @@ angular.module('bonitaPlatform')
         };
 
         $scope.pause = function (tenant) {
-            var modalInstance = $modal.open({
-                templateUrl: 'myModalContent.html',
-                controller: 'ModalInstanceCtrl',
-                resolve: {
-                    message: function () {
-                        return "Are you sure you want to pause tenant '" + tenant.name + "' ?";
-                    },
-                    tenant: function() {
-                        return tenant;
-                    }
-                }
-            });
+            var modal = openModal(tenant, "Are you sure you want to pause tenant '" + tenant.name + "' ?");
 
-            modalInstance.result.then(function (tenant) {
+            modal.result.then(function (tenant) {
                 tenant.state = "DEACTIVATED";
             });
         };
