@@ -41,7 +41,8 @@
 <div ng-controller="ModalCtrl">
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Warning !</h3>
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Warning !</h4>
         </div>
         <div class="modal-body">
             {{message}}
