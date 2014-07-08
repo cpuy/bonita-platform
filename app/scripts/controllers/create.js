@@ -25,10 +25,9 @@ angular.module('bonitaPlatform')
 
                    });
            }
+       };
 
-            $scope.cancel = function () {
-                $location.path('/tenants');
-            }
-
-       }
+        $scope.cancel = function () {
+            $location.path('/tenants');
+        };
     });
