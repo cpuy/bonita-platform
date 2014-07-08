@@ -80,6 +80,14 @@ module.exports = function (grunt) {
                     https: false,
                     changeOrigin: false,
                     xforward: false
+                },
+                {
+                    context: '/api',
+                    host: 'localhost',
+                    port: 8085,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
                 }
             ]
         },
