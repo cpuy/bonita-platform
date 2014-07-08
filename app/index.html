@@ -8,8 +8,8 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -33,20 +33,17 @@
 </head>
 <body ng-app="bonitaPlatform">
 
-    <div class="container">
-        <div class="header">
-            <ul class="nav nav-pills pull-right">
-                <li class="active"><a ng-href="#">Home</a></li>
-                <li><a ng-href="#/about">About</a></li>
-                <li><a ng-href="#">Contact</a></li>
-            </ul>
-            <h3 class="text-muted">Bonita Platform</h3>
-        </div>
-
-        <a class="btn btn-primary" href="#/tenants/new">Create tenant</a>
-
-        <div class="row" ng-view=""></div>
+<div class="container">
+    <div class="header">
+        <a id="home" href="/"><h3 class="text-muted">Bonita Platform</h3></a>
     </div>
+
+    <div class="row">
+        <a class="btn btn-primary pull-right" href="#/tenants/new">Create tenant</a>
+    </div>
+
+    <div class="row" ng-view=""></div>
+</div>
 
 </body>
 </html>
