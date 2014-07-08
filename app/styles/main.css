@@ -28,4 +28,9 @@
     color: #FFFFFF;
 }
 
+.action {
+    cursor: pointer;
+    padding: 0 5px;
+}
+
 
