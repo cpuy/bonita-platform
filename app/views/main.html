@@ -1,20 +1,25 @@
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Creation date</th>
-        <th>State</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="tenant in tenants">
-        <td>{{tenant.id}}</td>
-        <td>{{tenant.name}}</td>
-        <td>{{tenant.description}}</td>
-        <td>{{tenant.creation}}</td>
-        <td>{{tenant.state}}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="row">
+    <a class="btn btn-primary pull-right" href="#/tenants/new">Create tenant</a>
+</div>
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Creation date</th>
+            <th>State</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tenant in tenants">
+            <td>{{tenant.id}}</td>
+            <td>{{tenant.name}}</td>
+            <td>{{tenant.description}}</td>
+            <td>{{tenant.creation}}</td>
+            <td>{{tenant.state}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
