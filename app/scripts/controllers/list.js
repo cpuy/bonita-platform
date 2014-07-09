@@ -75,6 +75,17 @@ angular.module('bonitaPlatform')
             });
         };
 
+        $scope.deactivate = function(tenant) {
+            var modal = openModal(tenant, "Are you sure you want to deactivate tenant '" + tenant.name + "' ?", "Deactivate");
+
+            modal.result.then(function (tenant) {
+                $http.put("bonita/API/platform/tenant/" + tenant.id, {state: "DEACTIVATED"})
+                    .success(function (data) {
+                        load();
+                    });
+            });
+        };
+
         $scope.resume = function (tenant) {
             var modal = openModal(tenant, "Are you sure you want to resume tenant '" + tenant.name + "' ?", 'Resume');
 
