@@ -1,5 +1,5 @@
 angular.module('bonitaPlatform')
-    .controller('ListCtrl', function ($scope, $http, $modal) {
+    .controller('ListCtrl', function ($scope, $http, $modal, $location) {
 
         function load() {
             $http.get("/api/tenant")
@@ -106,7 +106,7 @@ angular.module('bonitaPlatform')
         }
 
         $scope.edit = function (tenant) {
-            alert('not implemented yet');
+            $location.path('/tenants/' + tenant.id);
         }
     })
     .controller('ModalInstanceCtrl', function ($scope, $modalInstance, message, tenant, buttonOk) {
