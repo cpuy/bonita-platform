@@ -18,7 +18,8 @@ angular.module('bonitaPlatform')
             );
 
         $scope.isInvalidPassword = function(pwd,conf_pwd){
-            return pwd != conf_pwd;
+
+            return (pwd != conf_pwd) && $scope.showValidationMessages;
         }
 
         $scope.isNotValid = function(field){
