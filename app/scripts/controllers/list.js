@@ -14,6 +14,19 @@ angular.module('bonitaPlatform')
             return tenant.state == "ACTIVATED";
         }
 
+        $scope.getStateClass = function(state) {
+            switch(state) {
+                case 'ACTIVATED':
+                    return 'label-success';
+                case 'DEACTIVATED':
+                    return 'label-danger';
+                case 'PAUSED':
+                    return 'label-warning';
+                default:
+                    return 'label-default';
+            }
+        };
+
         function openModal(tenant, message, buttonOk) {
             return $modal.open({
                 templateUrl: 'myModalContent.html',
