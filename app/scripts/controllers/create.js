@@ -11,9 +11,9 @@ angular.module('bonitaPlatform')
         }
 
         function isPasswordValid() {
-            return $scope.form.password == $scope.form.confirm_password;
+            return $scope.tenant.password == $scope.tenant.confirm_password;
         };
-        
+
         $scope.submit =  function(tenant) {
            var state;
            $scope.showValidationMessages = true;
