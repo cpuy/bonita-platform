@@ -98,14 +98,26 @@ angular.module('bonitaPlatform')
         }
 
         $scope.delete = function (tenant) {
-            var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?", 'Delete');
 
-            modal.result.then(function (tenant) {
-                $http.delete("/api/tenant/" + tenant.id)
-                    .success(function (data) {
-                        load();
-                    });
-            });
+            if ($scope.isDeactivated(tenant)) {
+                var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?", 'Delete');
+
+                modal.result.then(function (tenant) {
+                    $http.delete("/api/tenant/" + tenant.id)
+                        .success(function (data) {
+                            load();
+                        });
+                });
+            } else {
+                var modal = openModal(tenant, "You cannot delete an activated tenant, please deactivate it before deleting", 'OK');
+
+                modal.result.then(function (tenant) {
+                    $http.delete("/api/tenant/" + tenant.id)
+                        .success(function (data) {
+                            load();
+                        });
+                });
+            }
         }
 
         $scope.edit = function (tenant) {
