@@ -22,8 +22,9 @@
             <td><span class="label {{getStateClass(tenant.state)}}">{{tenant.state}}</span></td>
             <td class="text-right">
                 <a class="action">
-                    <i  ng-show="isActivated(tenant)" ng-click="pause(tenant)" title="Pause tenant" class="fa fa-pause"></i>
-                    <i  ng-show="!isActivated(tenant)" ng-click="resume(tenant)" title="Resume tenant" class="fa fa-play"></i>
+                    <i  ng-show="isActivated(tenant)" ng-click="pause(tenant)" title="Pause tenant for maintenance" class="fa fa-pause"></i>
+                    <i  ng-show="isPaused(tenant)" ng-click="resume(tenant)" title="Resume tenant" class="fa fa-play"></i>
+                    <i  ng-show="isDeactivated(tenant)" ng-click="activate(tenant)" title="Activate tenant" class="fa fa-play"></i>
                 </a>
                 <a class="action">
                     <i  ng-click="delete(tenant)" title="Delete tenant" class="fa fa-trash-o"></i>

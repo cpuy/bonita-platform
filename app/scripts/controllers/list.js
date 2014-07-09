@@ -12,7 +12,15 @@ angular.module('bonitaPlatform')
 
         $scope.isActivated = function (tenant) {
             return tenant.state == "ACTIVATED";
-        }
+        };
+
+        $scope.isPaused = function (tenant) {
+            return tenant.state == "PAUSED";
+        };
+
+        $scope.isDeactivated = function (tenant) {
+            return tenant.state == "DEACTIVATED";
+        };
 
         $scope.getStateClass = function(state) {
             switch(state) {
@@ -50,6 +58,17 @@ angular.module('bonitaPlatform')
 
             modal.result.then(function (tenant) {
                 $http.put("/bonita/API/system/tenant/" + tenant.id, {paused: "true"})
+                    .success(function (data) {
+                        load();
+                    });
+            });
+        };
+
+        $scope.activate = function(tenant) {
+            var modal = openModal(tenant, "Are you sure you want to activate tenant '" + tenant.name + "' ?", "Activate");
+
+            modal.result.then(function (tenant) {
+                $http.put("bonita/API/platform/tenant/" + tenant.id, {state: "ACTIVATED"})
                     .success(function (data) {
                         load();
                     });
