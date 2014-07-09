@@ -82,9 +82,9 @@ module.exports = function (grunt) {
                     xforward: false
                 },
                 {
-                    context: '/api',
+                    context: '/bonita-rest/api',
                     host: 'localhost',
-                    port: 8085,
+                    port: 8080,
                     https: false,
                     changeOrigin: false,
                     xforward: false

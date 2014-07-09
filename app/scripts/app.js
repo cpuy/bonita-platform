@@ -12,6 +12,10 @@ angular
                 templateUrl: 'views/create.html',
                 controller: 'CreateCtrl'
             })
+            .when('/tenants/:tenantId', {
+                templateUrl: 'views/update.html',
+                controller: 'UpdateCtrl'
+            })
             .otherwise({
                 redirectTo: '/tenants'
             });
