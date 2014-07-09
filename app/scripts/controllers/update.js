@@ -17,11 +17,15 @@ angular.module('bonitaPlatform')
             return $scope.showValidationMessages && field.$invalid;
         }
 
+        function isPasswordValid() {
+            return $scope.tenant.password == $scope.tenant.confirm_password;
+        };
+
         $scope.submit = function (tenant) {
             var state;
             $scope.showValidationMessages = true;
             $scope.form.$setDirty();
-            if ($scope.form.$valid) {
+            if ($scope.form.$valid && isPasswordValid()) {
                 $scope.showValidationMessages = false;
 
                 if (tenant.activated) {
