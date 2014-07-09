@@ -80,7 +80,7 @@ angular.module('bonitaPlatform')
             var modal = openModal(tenant, "Are you sure you want to activate tenant '" + tenant.name + "' ?", "Activate");
 
             modal.result.then(function (tenant) {
-                $http.put("bonita/API/platform/tenant/" + tenant.id, {state: "ACTIVATED"})
+                $http.put("/api/tenant/" + tenant.id, {state: "activated"})
                     .success(function (data) {
                         load();
                     });
@@ -91,7 +91,7 @@ angular.module('bonitaPlatform')
             var modal = openModal(tenant, "Are you sure you want to deactivate tenant '" + tenant.name + "' ?", "Deactivate");
 
             modal.result.then(function (tenant) {
-                $http.put("bonita/API/platform/tenant/" + tenant.id, {state: "DEACTIVATED"})
+                $http.put("/api/tenant/" + tenant.id, {state: "deactivated"})
                     .success(function (data) {
                         load();
                     });

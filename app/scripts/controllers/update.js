@@ -30,7 +30,7 @@ angular.module('bonitaPlatform')
                     state = "DEACTIVATED";
                 }
 
-                $http.post("/bonita/API/platform/tenant", {"name": tenant.name, "username": tenant.username, "password": tenant.password, "description": tenant.description, "icon": "/default.png", "state": state})
+                $http.put("/api/tenant/" + tenant.id, tenant)
                     .success(function (data) {
                         $location.path('/tenants');
 

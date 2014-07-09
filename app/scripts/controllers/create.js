@@ -23,8 +23,7 @@ angular.module('bonitaPlatform')
                    state = "DEACTIVATED";
                }
 
-               tenant.userName = tenant.username;
-               $http.post("/api/tenant", tenant)
+               $http.post("/bonita/API/platform/tenant", tenant)
                    .success(function (data) {
                        $location.path('/tenants');
 
