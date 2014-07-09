@@ -16,25 +16,24 @@
     </div>
 
      <div ng-class="{'error has-error': isNotValid(form.password)}" class="form-group has-feedback">
-        <label for="password" class="col-sm-2 control-label">Change technical user password<span style="color:red" > *</span></label>
+        <label for="password" class="col-sm-2 control-label">Change technical user password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="password" name="password" ng-model="tenant.password" placeholder="Tenant administrator password"  required/>
+            <input type="password" class="form-control" id="password" name="password" ng-model="tenant.password" placeholder="Tenant administrator password" />
             <span ng-show="isNotValid(form.password)" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
             <label id="password-warning" ng-show="isNotValid(form.password)" class="control-label" for="name">Required field</label>
         </div>
     </div>
 
     <div ng-class="{'error has-error': isInvalidPassword()}" class="form-group has-feedback">
-        <label for="confirm_password" class="col-sm-2 control-label">Confirm new technical user password<span style="color:red" > *</span></label>
+        <label for="confirm_password" class="col-sm-2 control-label">Confirm new technical user password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="confirm_password" name="confirm_password"  ng-model="tenant.confirm_password" placeholder="Tenant administrator password"  required/>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password"  ng-model="tenant.confirm_password" placeholder="Tenant administrator password" />
             <span ng-show="isInvalidPassword()" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
             <label id="confirm-password-warning" ng-show="isInvalidPassword()" class="control-label" for="name">Confirmation password must match the new password!</label>
         </div>
     </div>
 
-    {{form.password}}
-    {{tenant}}
+
     <div  class="form-group  has-feedback">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-success" ng-click="submit(tenant)" >Create</button>

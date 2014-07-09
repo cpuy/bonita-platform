@@ -10,19 +10,15 @@ angular.module('bonitaPlatform')
                 function (data) {
                     $scope.tenant = {
                         "defaultTenant" : true,
-                        "iconPath" : null,
-                        "iconName" : null,
                         "description" : "Default tenant",
-                        "creationDate" : "2014-07-08T10:21:36.025+0000",
-                        "name" : "default",
                         "id" : 1,
                         "state" : "ACTIVATED"
                     } ;
                 }
             );
 
-        $scope.isInvalidPassword = function(field){
-            return $scope.form.password == $scope.form.confirm_password;
+        $scope.isInvalidPassword = function(){
+            return $scope.tenant.password != $scope.tenant.confirm_password;
         }
 
         $scope.submit =  function(tenant) {
