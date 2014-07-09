@@ -2,7 +2,7 @@ angular.module('bonitaPlatform')
     .controller('ListCtrl', function ($scope, $http, $modal) {
 
         function load() {
-            $http.get("/bonita-rest/api/tenant")
+            $http.get("/api/tenant")
                 .success(function (data) {
                     $scope.tenants = data;
                 });
