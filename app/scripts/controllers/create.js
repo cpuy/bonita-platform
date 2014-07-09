@@ -17,21 +17,28 @@ angular.module('bonitaPlatform')
            if($scope.form.$valid) {
                $scope.showValidationMessages = false;
 
-               if (tenant.activated) {
-                   state = "ACTIVATED";
-               } else {
-                   state = "DEACTIVATED";
-               }
+
 
                $http.post("/bonita/API/platform/tenant", tenant)
                    .success(function (data) {
-                       $location.path('/tenants');
+                       if (tenant.activated) {
+                           activate(data);
+                       } else {
+                           $location.path('/tenants');
+                       }
+
 
                    });
 
            }
-
        };
+
+        function activate(tenant) {
+            $http.put("/api/tenant/" + tenant.id, {state: "activated"})
+                .success(function (data) {
+                    $location.path('/tenants');
+                });
+        }
 
         $scope.cancel = function () {
             $location.path('/tenants');
