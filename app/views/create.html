@@ -32,6 +32,15 @@
         </div>
     </div>
 
+    <div ng-class="{'error has-error': isInvalidPassword(tenant.password,tenant.confirm_password)}" class="form-group has-feedback">
+        <label for="confirm_password" class="col-sm-2 control-label">Confirm new technical user password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password"  ng-model="tenant.confirm_password" placeholder="Confirm tenant administrator password" />
+            <span ng-show="isInvalidPassword(tenant.password,tenant.confirm_password)" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+            <label id="confirm-password-warning" ng-show="isInvalidPassword(tenant.password,tenant.confirm_password)" class="control-label" for="confirm_password">Confirmation password must match the new password!</label>
+        </div>
+    </div>
+
     <div  class="form-group has-feedback">
         <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">

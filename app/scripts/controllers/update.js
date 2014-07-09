@@ -17,8 +17,12 @@ angular.module('bonitaPlatform')
                 }
             );
 
-        $scope.isInvalidPassword = function(){
-            return $scope.tenant.password != $scope.tenant.confirm_password;
+        $scope.isInvalidPassword = function(pwd,conf_pwd){
+            return pwd != conf_pwd;
+        }
+
+        $scope.isNotValid = function(field){
+            return $scope.showValidationMessages && field.$invalid;
         }
 
         $scope.submit =  function(tenant) {
