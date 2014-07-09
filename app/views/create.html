@@ -35,7 +35,7 @@
     </div>
 
     <div ng-class="{'error has-error': isInvalidPassword(tenant.password,tenant.confirm_password)}" class="form-group has-feedback">
-        <label for="confirm_password" class="col-sm-2 control-label">Confirm new technical user password</label>
+        <label for="confirm_password" class="col-sm-2 control-label">Confirm new technical user password<span style="color:red" > *</span></label>
         <div class="col-sm-10">
             <input type="password" class="form-control" id="confirm_password" name="confirm_password"  ng-model="tenant.confirm_password" placeholder="Confirm tenant administrator password" />
             <span ng-show="isInvalidPassword(tenant.password,tenant.confirm_password)" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
