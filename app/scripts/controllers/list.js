@@ -53,6 +53,18 @@ angular.module('bonitaPlatform')
             });
         };
 
+        function openAlertModal(tenant, message) {
+            return $modal.open({
+                templateUrl: 'myModalAlertContent.html',
+                controller: 'ModalAlertInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return message;
+                    }
+                }
+            });
+        };
+
         $scope.pause = function (tenant) {
             var modal = openModal(tenant, "Are you sure you want to pause tenant '" + tenant.name + "' ?", "Pause");
 
@@ -109,14 +121,7 @@ angular.module('bonitaPlatform')
                         });
                 });
             } else {
-                var modal = openModal(tenant, "You cannot delete an activated tenant, please deactivate it before deleting", 'OK');
-
-                modal.result.then(function (tenant) {
-                    $http.delete("/api/tenant/" + tenant.id)
-                        .success(function (data) {
-                            load();
-                        });
-                });
+                openAlertModal(tenant, "You cannot delete an activated tenant, please deactivate it before deleting", 'OK');
             }
         }
 
@@ -134,4 +139,11 @@ angular.module('bonitaPlatform')
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-    });
+    })
+    .controller('ModalAlertInstanceCtrl', function ($scope, $modalInstance, message) {
+        $scope.message = message;
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });;
