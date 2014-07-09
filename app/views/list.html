@@ -19,7 +19,7 @@
             <td>{{tenant.name}}</td>
             <td>{{tenant.description}}</td>
             <td>{{tenant.creationDate | date:'short'}}</td>
-            <td>{{tenant.state}}</td>
+            <td><span class="label label-default">{{tenant.state}}</span></td>
             <td class="text-right">
                 <a class="action">
                     <i  ng-show="isActivated(tenant)" ng-click="pause(tenant)" title="Pause tenant" class="fa fa-pause"></i>
