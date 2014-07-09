@@ -101,7 +101,10 @@ angular.module('bonitaPlatform')
             var modal = openModal(tenant, "Are you sure you want to delete tenant '" + tenant.name + "' ?", 'Delete');
 
             modal.result.then(function (tenant) {
-                alert('not yet implemented');
+                $http.delete("/api/tenant/" + tenant.id)
+                    .success(function (data) {
+                        load();
+                    });
             });
         }
 
