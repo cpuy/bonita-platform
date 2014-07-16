@@ -7,9 +7,7 @@ angular.module('bonitaPlatform')
                 $scope.tenant = data;
             });
 
-
         $scope.isInvalidPassword = function (pwd, conf_pwd) {
-
             return (pwd != conf_pwd) && $scope.showValidationMessages;
         }
 
@@ -30,7 +28,7 @@ angular.module('bonitaPlatform')
                     state = "DEACTIVATED";
                 }
 
-                $http.post("/bonita/API/platform/tenant", {"name": tenant.name, "username": tenant.username, "password": tenant.password, "description": tenant.description, "icon": "/default.png", "state": state})
+                $http.post("/bonita/API/platform/tenant", tenant)
                     .success(function (data) {
                         $location.path('/tenants');
 
